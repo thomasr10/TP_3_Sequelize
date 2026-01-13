@@ -26,21 +26,28 @@ fetchAllArticle()
 .then((data) => {
     
     data.data.forEach(art => {
-        
+        console.log(art)
         const articleContainer = document.createElement('article');
         const title = document.createElement('h2');
         const content = document.createElement('p');
         articleContainer.setAttribute('id', art.id);
         const author = document.createElement('p');
+        const date = document.createElement('p');
 
         articleContainer.classList.add('article-container');
         title.textContent = art.title;
         content.textContent = art.content;
         author.textContent = art.user.username;
+        
+        const articleDate = new Date(art.createdAt);
+        const min = (articleDate.getMinutes() == 0) ? '00' : articleDate.getMinutes();
+
+        date.textContent = `${articleDate.getDate()}/${articleDate.getMonth()+ 1}/${articleDate.getFullYear()} - ${articleDate.getHours()}:${min}`;
 
         articleContainer.append(title);
         articleContainer.append(content);
         articleContainer.append(author);
+        articleContainer.append(date);
         section.append(articleContainer);
 
         articleContainer.addEventListener('click', () => openArticle(art.id))

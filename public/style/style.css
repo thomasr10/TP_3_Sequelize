@@ -133,7 +133,7 @@ h1 {
     color: #333;
 }
 
-.input-container input[type="text"] {
+.input-container input {
     padding: 10px 12px;
     border-radius: 6px;
     border: 1px solid #ccc;
@@ -141,7 +141,7 @@ h1 {
     transition: border-color 0.2s ease;
 }
 
-.input-container input[type="text"]:focus {
+.input-container input:focus {
     border-color: #1e1e1e;
     outline: none;
 }

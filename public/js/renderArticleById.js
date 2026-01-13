@@ -5,19 +5,27 @@ import fetchArticleById from "./fetchArticleById.js";
 const section = document.getElementById('container');
 
 me().then((userInfos) => {
-    
+
     fetchArticleById().then((data) => {
         const article = document.createElement('article');
         const title = document.createElement('h2');
         const content = document.createElement('p');
         const author = document.createElement('p');
+        const date = document.createElement('p');
 
         title.textContent = data.data.title;
         content.textContent = data.data.content;
         author.textContent = data.data.user.username;
+
+        const articleDate = new Date(data.data.createdAt);
+        const min = (articleDate.getMinutes() == 0) ? '00' : articleDate.getMinutes();
+
+        date.textContent = `${articleDate.getDate()}/${articleDate.getMonth() + 1}/${articleDate.getFullYear()} - ${articleDate.getHours()}:${min}`;
+
         article.append(title);
         article.append(content);
         article.append(author);
+        article.append(date);
         section.append(article);
 
         article.classList.add('article-container')

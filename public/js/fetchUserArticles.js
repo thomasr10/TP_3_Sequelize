@@ -34,6 +34,8 @@ const displayArticles = (articles) => {
         const title = document.createElement('h2');
         const content = document.createElement('p');
         const author = document.createElement('p');
+        const date = document.createElement('p');
+
         articleContainer.setAttribute('id', art.id);
 
         articleContainer.classList.add('article-container');
@@ -41,9 +43,15 @@ const displayArticles = (articles) => {
         content.textContent = art.content;
         author.textContent = art.user.username;
 
+        const articleDate = new Date(art.createdAt);
+        const min = (articleDate.getMinutes() == 0) ? '00' : articleDate.getMinutes();
+
+        date.textContent = `${articleDate.getDate()}/${articleDate.getMonth() + 1}/${articleDate.getFullYear()} - ${articleDate.getHours()}:${min}`;
+
         articleContainer.append(title);
         articleContainer.append(content);
         articleContainer.append(author);
+        articleContainer.append(date);
         section.append(articleContainer);
 
         articleContainer.addEventListener('click', () => openArticle(art.id));
