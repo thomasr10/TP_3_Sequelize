@@ -43,7 +43,7 @@ npm install
 - Remplir les variables d’environnement nécessaires (BDD, utilisateur, mot de passe, etc.)
 
 ```bash
-cp .env-example .env
+cp .env.example .env
 ```
 
 ### 4️⃣ Créer la base de données
