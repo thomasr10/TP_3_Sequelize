@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP 3 | Add article</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span><a href="/">TP 3</a></span>
+            <ul id="nav-list">
+                <li><a href="" id="user-link"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Add article page</h1>
+    <section class="form-container">
+        <p id="add-response"></p>
+        <form id="add-form">
+            <div class="input-container">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="input-container">
+                <label for="content">Content</label>
+                <input type="text" name="content" id="content">
+            </div>
+            <div class="submit-container">
+                <input type="submit" value="Add">
+            </div>
+        </form>
+    </section>
+    <script src="/js/header.js" type="module"></script>
+    <script src="/js/add.js" type="module"></script>
+</body>
+</html>
